@@ -22,7 +22,8 @@ public class AnalyticsCounter {
 	    int nbOfDifferentSymptoms = Integer.parseInt(nbOfDifferentSymptomsString);
 	    List<String> symptomsToCheck = new ArrayList<String>();
 	    Map<String, Integer> symptomsChecked = new HashMap<String, Integer>();
-
+	    
+	    
 	    
 	    for (int i = 0; i < nbOfDifferentSymptoms; i++) {
 	    	System.out.println("Type the name of the symptom n°"+(i+1)+": ");
@@ -30,17 +31,12 @@ public class AnalyticsCounter {
 	    	symptomsToCheck.add(symptom);
 	    	symptomsChecked.put(symptom,symptomList.numberOfSymptoms(symptomsToCheck.get(i)));
 	    	System.out.print("There's "+symptomsChecked.get(symptom)+" symptoms of '"+symptom+"'.");
+
 	    }
-	    
-	    
 	    scanner.close();
+	    
+	    ResultsWriter results = new ResultsWriter();
+	    results.writeResults(symptomsChecked);
 		
-		
-		
-		
-		// next generate output
-		FileWriter writer = new FileWriter ("result.out");
-		writer.write("headache: " + symptomCount + "\n");
-		writer.close();
 	}
 }
