@@ -43,5 +43,17 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 		
 		return result;
 	}
+	
+	public Integer numberOfSymptoms(String symptomEntered) {
+		int numberSymptom = 0;
+		List<String> symptomList = this.GetSymptoms();
+		for(String symptom : symptomList){
+			if(symptom.equals(symptomEntered)) {
+				numberSymptom++;
+			}
+			
+		}
+		return numberSymptom;
+	}
 
 }
