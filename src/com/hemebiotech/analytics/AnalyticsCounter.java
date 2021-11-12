@@ -1,27 +1,36 @@
 package com.hemebiotech.analytics;
 
-import java.io.FileWriter;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
 public class AnalyticsCounter {
-	private static int symptomCount = 0;	// initialize to 0
 	
 	public static void main(String args[]) throws Exception {
 
 		ReadSymptomDataFromFile symptomList = new ReadSymptomDataFromFile("symptoms.txt");
 		
-		Scanner scanner = new Scanner(System.in);  // Create a Scanner object
+		Scanner scanner = new Scanner(System.in);
 		ResultsWriter results = new ResultsWriter();
 		
 	    System.out.println("How many symptoms would you like to find ? (Input a number) : ");
-	    String nbOfDifferentSymptomsString = scanner.nextLine();  // Read user input
+	    int nbOfDifferentSymptoms = 0;
 	    
-	    int nbOfDifferentSymptoms = Integer.parseInt(nbOfDifferentSymptomsString);
+	    try {
+	    	String num = scanner.nextLine();
+	    	nbOfDifferentSymptoms = Integer.parseInt(num);
+	    }
+	    catch (NumberFormatException e)
+	    {
+	    	System.out.println("Input is not a number.");
+	    }
+	    
+	        
+	      
+	      
+
 	    List<String> symptomsToCheck = new ArrayList<String>();
 	    Map<String, Integer> symptomsChecked = new HashMap<String, Integer>();
 	    

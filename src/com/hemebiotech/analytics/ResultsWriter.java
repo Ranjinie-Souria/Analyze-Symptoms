@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.Map;
 
 /**
- * Writes in the result.out file
+ * Write the result.out file
  *
  */
 public class ResultsWriter {
