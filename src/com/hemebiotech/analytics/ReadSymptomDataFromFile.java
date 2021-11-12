@@ -44,6 +44,10 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 		return result;
 	}
 	
+	/**
+	 * 
+	 * @param  Counts the number of times a certain typed symptom appears in a list
+	 */
 	public Integer numberOfSymptoms(String symptomEntered) {
 		int numberSymptom = 0;
 		List<String> symptomList = this.GetSymptoms();
