@@ -40,6 +40,18 @@ public class AnalyticsCounter {
 	    	System.out.println("Type the name of the symptom n°"+(i+1)+": ");
 	    	System.out.println("(For a list of all the symptoms, write /help)");
 	    	String answer = scanner.nextLine();
+	    	
+	        while (!symptomList.getListSymptoms().contains(answer)&&!answer.equals("/help")){
+	            System.out.println("invalid day , please enter another day : ");
+	            System.out.println("Type the name of the symptom n°"+(i+1)+": ");
+		    	System.out.println("(For a list of all the symptoms, write /help)");
+		    	String newAnswer = scanner.nextLine();
+	    		if(symptomList.getListSymptoms().contains(newAnswer)||newAnswer.equals("/help")) {
+	    			answer = newAnswer.toLowerCase();
+	    			break;
+	    		}
+	        }
+	        
 	    	while(answer.equals("/help")) {
 		    		System.out.println("List of all symptoms : ");
 		    		for (String element : symptomList.getListSymptoms()) {
