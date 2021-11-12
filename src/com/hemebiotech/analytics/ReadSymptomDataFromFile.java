@@ -4,7 +4,9 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Simple brute force implementation
@@ -58,6 +60,19 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 			
 		}
 		return numberSymptom;
+	}
+	
+	/**
+	 * 
+	 * @param  Lists all symptoms without duplicates
+	 */
+	public List<String> getListSymptoms() {
+		List<String> listSymptoms = new ArrayList<String>();
+		List<String> symptomList = this.GetSymptoms();
+		Set<String> set = new HashSet<>(symptomList);
+		listSymptoms.addAll(set);
+		java.util.Collections.sort(listSymptoms);
+		return listSymptoms;
 	}
 
 }
