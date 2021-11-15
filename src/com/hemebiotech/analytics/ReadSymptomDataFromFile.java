@@ -51,6 +51,8 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	 * 
 	 * Counts the number of times a certain typed symptom appears in a list
 	 * 
+	 * @param symptomEntered The name of the symptom
+	 *  
 	 */
 	public Integer numberOfSymptoms(String symptomEntered) {
 		int numberSymptom = 0;
