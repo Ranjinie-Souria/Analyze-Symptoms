@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 public class AnalyticsCounter {
 	
+	
 	public static void main(String args[]) throws Exception {
 
 		ReadSymptomDataFromFile symptomList = new ReadSymptomDataFromFile("symptoms.txt");
@@ -24,13 +25,10 @@ public class AnalyticsCounter {
 	    }
 	    catch (NumberFormatException e)
 	    {
-	    	System.out.println("Input is not a number.");
+	    	System.out.println("Error : You need to input a number.");
 	    }
 	    
-	        
-	      
-	      
-
+	    
 	    List<String> symptomsToCheck = new ArrayList<String>();
 	    Map<String, Integer> symptomsChecked = new HashMap<String, Integer>();
 	    
@@ -40,40 +38,43 @@ public class AnalyticsCounter {
 	    	System.out.println("Type the name of the symptom n°"+(i+1)+": ");
 	    	System.out.println("(For a list of all the symptoms, write /help)");
 	    	String answer = scanner.nextLine();
-	    	
-	        while (!symptomList.getListSymptoms().contains(answer)&&!answer.equals("/help")){
-	            System.out.println("invalid day , please enter another day : ");
-	            System.out.println("Type the name of the symptom n°"+(i+1)+": ");
-		    	System.out.println("(For a list of all the symptoms, write /help)");
-		    	String newAnswer = scanner.nextLine();
-	    		if(symptomList.getListSymptoms().contains(newAnswer)||newAnswer.equals("/help")) {
+	        while(answer.equals("/help")) {
+	        	helpCommand(answer, symptomList);
+	    		System.out.println("Type the name of the symptom n°"+(i+1)+": ");
+	    		System.out.println("(For a list of all the symptoms, write /help)");
+	    		String newAnswer = scanner.nextLine();
+	    		if(!newAnswer.equals("/help")) {
 	    			answer = newAnswer.toLowerCase();
 	    			break;
 	    		}
-	        }
+	        }	    
 	        
-	    	while(answer.equals("/help")) {
-		    		System.out.println("List of all symptoms : ");
-		    		for (String element : symptomList.getListSymptoms()) {
-		    		    System.out.println(element);
-		    		}
-		    		System.out.println("Type the name of the symptom n°"+(i+1)+": ");
-		    		System.out.println("(For a list of all the symptoms, write /help)");
-		    		String newAnswer = scanner.nextLine();
-		    		if(!newAnswer.equals("/help")) {
-		    			answer = newAnswer.toLowerCase();
-		    			break;
-		    		}
-	    	}	    	
-	    	symptomsToCheck.add(answer);
-	    	symptomsChecked.put(answer,symptomList.numberOfSymptoms(symptomsToCheck.get(i)));
-	    	System.out.println("There's "+symptomsChecked.get(answer)+" symptoms of '"+answer+"'.");
+	        if(!answer.equals("/help")&&!symptomList.getListSymptoms().contains(answer)) {
+	        	symptomsToCheck.add(answer);
+		    	symptomsChecked.put(answer,symptomList.numberOfSymptoms(symptomsToCheck.get(i)));
+				System.out.println("The symptom '"+answer+"' was not found in the list of symptoms.");
+			}
+	        else {
+	        	symptomsToCheck.add(answer);
+		    	symptomsChecked.put(answer,symptomList.numberOfSymptoms(symptomsToCheck.get(i)));
+		    	System.out.println("There's "+symptomsChecked.get(answer)+" symptoms of '"+answer+"'.");
+	        }
+
+	    	
 
 	    }
 	    scanner.close();
-	    
-	    
 	    results.writeResults(symptomsChecked);
 		
 	}
+	
+	public static void helpCommand(String answer, ReadSymptomDataFromFile symptomList) {		
+		if(answer.equals("/help")) {
+			System.out.println("List of all symptoms : ");
+    		for (String element : symptomList.getListSymptoms()) {
+    		    System.out.println(element);
+    		}
+		}		
+	}
+	
 }
