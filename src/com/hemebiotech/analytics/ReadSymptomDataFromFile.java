@@ -20,6 +20,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	 * 
 	 * Filepath a full or partial path to file with symptom strings in it, one per line
 	 * 
+	 * @param filepath The filepath
 	 */
 	public ReadSymptomDataFromFile (String filepath) {
 		this.filepath = filepath;
@@ -53,6 +54,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	 * 
 	 * @param symptomEntered The name of the symptom
 	 *  
+	 *  @return Returns the numbers of time the symptom appears
 	 */
 	public Integer numberOfSymptoms(String symptomEntered) {
 		int numberSymptom = 0;
@@ -69,6 +71,8 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	/**
 	 * 
 	 * Lists all symptoms without duplicates
+	 * 
+	 * @return Returns the list without duplicates
 	 * 
 	 */
 	public List<String> getListSymptoms() {

@@ -6,6 +6,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
+/**
+ * 
+ * The main code
+ * 
+ */
 public class AnalyticsCounter {
 	
 	
