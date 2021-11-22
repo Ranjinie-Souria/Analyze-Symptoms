@@ -33,8 +33,8 @@ public class AnalyticsCounter {
 	/**
 	 * Returns the list of all the symptoms in the symptoms.txt file
 	 * 
-	 * @param answer : The input entered, needs to be equal to /help
-	 * @param symptomList : The text file with the symptoms in duplicates
+	 * @param answer The input entered, needs to be equal to /help
+	 * @param symptomList A list of all the symptoms without duplicates
 	 * 
 	 */
 	public static void helpCommand(String answer, ReadSymptomDataFromFile symptomList) {		
@@ -50,7 +50,7 @@ public class AnalyticsCounter {
 	 * 
 	 * Get the number of symptoms the user wants to check, sends an error message when the number isn't an integer
 	 * 
-	 * @param scanner : The scanner
+	 * @param scanner The scanner
 	 * @return returns the number of symptoms the user wants to check
 	 * 
 	 */
@@ -75,11 +75,11 @@ public class AnalyticsCounter {
 	 * The main code, it fills the data in a Map List to prepare it for the results.out file
 	 * Also informs the user about the number of symptoms in the list each time they type a symptom
 	 * 
-	 * @param nbOfDifferentSymptoms : The number of different symptoms to check
-	 * @param symptomsToCheck : The symptoms to check
-	 * @param symptomsChecked : A Map List with the name of the symptom and the number of time it appears
-	 * @param scanner : The Scanner
-	 * @param symptomList : The symptoms.txt file
+	 * @param nbOfDifferentSymptoms The number of different symptoms to check
+	 * @param symptomsToCheck The symptoms to check
+	 * @param symptomsChecked A Map List with the name of the symptom and its number of occurences
+	 * @param scanner The Scanner
+	 * @param symptomList A list of all the symptoms without duplicates
 	 * 
 	 */
 	public static void fillSymptoms(int nbOfDifferentSymptoms, List<String> symptomsToCheck, Map<String, Integer> symptomsChecked, Scanner scanner,ReadSymptomDataFromFile symptomList) {

@@ -72,7 +72,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	 * 
 	 * Lists all symptoms without duplicates
 	 * 
-	 * @return Returns the list without duplicates
+	 * @return Returns the list of symptoms without duplicates
 	 * 
 	 */
 	public List<String> getListSymptoms() {
