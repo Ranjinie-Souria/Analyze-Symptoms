@@ -55,6 +55,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	 * @param symptomEntered The name of the symptom
 	 *  
 	 *  @return Returns the numbers of time the symptom appears
+	 *  
 	 */
 	public Integer numberOfSymptoms(String symptomEntered) {
 		int numberSymptom = 0;

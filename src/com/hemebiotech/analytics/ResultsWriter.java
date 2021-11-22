@@ -5,12 +5,16 @@ import java.io.IOException;
 import java.util.Map;
 import java.util.TreeMap;
 
-/**
- * Write the result.out file
- *
- */
+
 public class ResultsWriter {
 	
+	/**
+	 * 
+	 * Writes the result.out file
+	 * 
+	 * @param symptomsChecked List of the symptoms that were checked, with their name and occurence
+	 * 
+	 */
 	public void writeResults(Map<String, Integer> symptomsChecked) {
 		try {
 			FileWriter writer = new FileWriter ("result.out");
