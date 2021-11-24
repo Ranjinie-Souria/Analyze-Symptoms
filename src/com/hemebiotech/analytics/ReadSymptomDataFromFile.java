@@ -26,8 +26,12 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 		this.filepath = filepath;
 	}
 	
+	public String getFilepath() {
+		return filepath;
+	}
+	
 	@Override
-	public List<String> GetSymptoms() {
+	public List<String> getSymptoms() {
 		ArrayList<String> result = new ArrayList<String>();
 		
 		if (filepath != null) {
@@ -59,7 +63,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	 */
 	public Integer numberOfSymptoms(String symptomEntered) {
 		int numberSymptom = 0;
-		List<String> symptomList = this.GetSymptoms();
+		List<String> symptomList = this.getSymptoms();
 		for(String symptom : symptomList){
 			if(symptom.equals(symptomEntered)) {
 				numberSymptom++;
@@ -78,7 +82,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	 */
 	public List<String> getListSymptoms() {
 		List<String> listSymptoms = new ArrayList<String>();
-		List<String> symptomList = this.GetSymptoms();
+		List<String> symptomList = this.getSymptoms();
 		Set<String> set = new HashSet<>(symptomList);
 		listSymptoms.addAll(set);
 		java.util.Collections.sort(listSymptoms);
